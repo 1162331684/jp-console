@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.qc.mapper.QcTrfItemSpecimenTestingMapper">
+
+	<sql id="qcTrfItemSpecimenTestingColumns">
+		a.id AS "id",
+		a.qc_trf_item_specimen_id AS "qcTrfItemSpecimen.id",
+		a.test_code AS "testCode",
+		a.qc_test_code_id AS "qcTestCodeId",
+		a.test_name AS "testName",
+		a.ref_std AS "refStd",
+		a.comp AS "comp",
+		a.test_result AS "testResult",
+		a.img_before AS "imgBefore",
+		a.img_after AS "imgAfter",
+		a.change_time AS "changeTime",
+		a.remarks AS "remarks",
+		a.is_require AS "isRequire",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag",
+		a.tester AS "tester.id",
+		a.test_time AS "testTime",
+
+		b.qc_trf_item_id AS "qcTrfItemSpecimen.qcTrfItemId",
+		b.specimen_id AS "qcTrfItemSpecimen.specimenId",
+		b.stage AS "qcTrfItemSpecimen.stage",
+		b.type AS "qcTrfItemSpecimen.type",
+		b.service AS "qcTrfItemSpecimen.service",
+		b.status AS "qcTrfItemSpecimen.status",
+		b.remarks AS "qcTrfItemSpecimen.remarks"
+	</sql>
+
+	<sql id="qcTrfItemSpecimenTestingJoins">
+
+			LEFT JOIN qc_trf_item_specimen b ON b.id = a.qc_trf_item_specimen_id
+	</sql>
+
+
+	<select id="findById" resultType="com.jeeplus.qc.service.dto.QcTrfItemSpecimenTestingDTO">
+		SELECT
+			<include refid="qcTrfItemSpecimenTestingColumns"/>
+		FROM qc_trf_item_specimen_testing a
+		<include refid="qcTrfItemSpecimenTestingJoins"/>
+		WHERE a.id = #{id} and a.del_flag = 0
+	</select>
+
+	<select id="findList" resultType="com.jeeplus.qc.service.dto.QcTrfItemSpecimenTestingDTO">
+		SELECT
+			<include refid="qcTrfItemSpecimenTestingColumns"/>
+		FROM qc_trf_item_specimen_testing a
+		<include refid="qcTrfItemSpecimenTestingJoins"/>
+		WHERE a.qc_trf_item_specimen_id = #{QcTrfItemSpecimenId} and a.del_flag = 0
+	</select>
+
+</mapper>

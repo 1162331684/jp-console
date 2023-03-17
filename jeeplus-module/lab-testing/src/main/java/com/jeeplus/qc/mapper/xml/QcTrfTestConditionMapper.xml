@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.qc.mapper.QcTrfTestConditionMapper">
+
+	<sql id="qcTrfTestConditionColumns">
+		a.test_code_id AS "testCodeId",
+		a.test_condition AS "testCondition",
+		a.test_content_id AS "testContentId",
+		a.supplement AS "supplement",
+		a.status AS "status",
+		a.id AS "id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag"
+	</sql>
+
+	<sql id="qcTrfTestConditionJoins">
+
+		LEFT JOIN sys_user createBy ON createBy.id = a.create_by
+		LEFT JOIN sys_user updateBy ON updateBy.id = a.update_by
+	</sql>
+
+
+	<select id="findById" resultType="com.jeeplus.qc.service.dto.QcTrfTestConditionDTO">
+		SELECT
+			<include refid="qcTrfTestConditionColumns"/>
+		FROM qc_trf_test_condition a
+		<include refid="qcTrfTestConditionJoins"/>
+		WHERE a.id = #{id} and a.del_flag = 0
+	</select>
+	<select id="findList" resultType="com.jeeplus.qc.service.dto.QcTrfTestConditionDTO">
+		SELECT
+			<include refid="qcTrfTestConditionColumns"/>
+		FROM qc_trf_test_condition a
+		<include refid="qcTrfTestConditionJoins"/>
+	    ${ew.customSqlSegment}
+	</select>
+
+</mapper>

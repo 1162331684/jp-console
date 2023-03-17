@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>jeeplus</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>lab-mobile</name>
+			<type>2</type>
+			<location>E:/myWork/ljwork8/lab-testing/lab-mobile</location>
+		</link>
+		<link>
+			<name>lab-testing</name>
+			<type>2</type>
+			<location>E:/myWork/ljwork8/lab-testing/lab-testing</location>
+		</link>
+	</linkedResources>
+</projectDescription>

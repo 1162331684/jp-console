@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.qc.mapper.QcT2FilesMapper">
+	<sql id="userColumns">
+    	a.id,
+    	a.file_name fileName, 
+    	a.file_url fileUrl,
+    	a.company_code companyCode,
+		a.remark,
+		a.create_by AS "createBy.id",
+		a.create_date,
+		a.update_by AS "updateBy.id",
+		a.update_date,
+		a.del_flag delFlag
+    </sql>
+
+	<!-- 分页查询用户信息 -->
+	<select id="findList" resultType="com.jeeplus.qc.service.dto.QcT2FilesDTO">
+		SELECT
+		<include refid="userColumns"/>
+		FROM qc_t2_files a
+		join qc_t2_file_content c on c.id =a.id
+		${ew.customSqlSegment}
+	</select>
+
+</mapper>

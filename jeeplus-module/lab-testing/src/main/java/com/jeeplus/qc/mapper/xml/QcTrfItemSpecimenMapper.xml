@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.qc.mapper.QcTrfItemSpecimenMapper">
+
+    <select id="findListByItemId" resultType="com.jeeplus.qc.domain.QcTrfItemSpecimen">
+        SELECT
+        a.qc_trf_item_id qcTrfItemId,
+        a.specimen_id specimenId
+        FROM qc_trf_item_specimen a
+        WHERE a.qc_trf_item_id = #{qcTrfItemId}
+    </select>
+</mapper>
