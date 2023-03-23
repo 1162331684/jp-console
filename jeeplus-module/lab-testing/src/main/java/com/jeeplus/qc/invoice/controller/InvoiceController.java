@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 import com.jeeplus.core.query.QueryWrapperGenerator;
 
+import com.jeeplus.qc.invoice.domain.Invoice;
 import com.jeeplus.qc.invoice.domain.InvoiceSequenceSetup;
 import com.jeeplus.qc.invoice.service.InvoiceService;
 import com.jeeplus.qc.invoice.service.InvoiceSetupService;
@@ -57,18 +58,30 @@ public class InvoiceController {
 //    @ApiOperation(value = "保存qc_line_configuration")
     //@PreAuthorize("hasAnyAuthority('qc:invoice:generate','qc:invoice:edit')")
     @PostMapping("save")
-    public  ResponseEntity <String> save(@Valid @RequestBody InvoiceDTO invoiceDTO) {
+    public  ResponseEntity <String> save(@Valid @RequestBody InvoiceDTO invoiceDTO) throws Exception {
         //新增或编辑表单保存
-        System.out.println("第一条"+invoiceDTO+"第二条"+invoiceDTO.getId());
-        System.out.println("***************************************************************"+invoiceWrapper.toEntity(invoiceDTO));
-        invoiceService.saveOrUpdate (invoiceWrapper.toEntity(invoiceDTO));
-        return ResponseEntity.ok ( "保存invoice成功" );
+        System.out.println("*****invoiceDTO.invoiceNumber****)"+hasInvoiceNumber(invoiceDTO.invoiceNumber));
+        if(!hasInvoiceNumber(invoiceDTO.invoiceNumber)){
+
+            System.out.println("第一条"+invoiceDTO+"第二条"+invoiceDTO.getInvoiceNumber()+"第三条"+invoiceDTO.invoiceNumber);
+            System.out.println("***************************************************************"+invoiceWrapper.toEntity(invoiceDTO));
+            invoiceService.saveOrUpdate (invoiceWrapper.toEntity(invoiceDTO));
+            return ResponseEntity.ok ( "保存invoice成功" );
+        }
+        return ResponseEntity.badRequest().body("已存在invoice_number："+invoiceDTO.invoiceNumber);
+
+    }
+    
+    public boolean hasInvoiceNumber(String invoiceNumber) throws Exception {
+        QueryWrapper<Invoice> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("invoice_number",invoiceNumber);
+        return invoiceService.getOne(queryWrapper)!=null;
     }
 
     @PostMapping("saveSetup")
     public  ResponseEntity <String> saveSetup(@Valid @RequestBody InvoiceSequenceSetup invoiceSequenceSetup) {
         //新增或编辑表单保存
-        System.out.println("第一条"+invoiceSequenceSetup+"第二条"+invoiceSequenceSetup.getId());
+        System.out.println("第一条"+invoiceSequenceSetup+"第二条"+invoiceSequenceSetup.getCreateBy());
         invoiceSetupService.saveOrUpdate (invoiceSequenceSetup);
         return ResponseEntity.ok ( "保存invoiceSequenceSetup成功" );
     }
@@ -83,6 +96,10 @@ public class InvoiceController {
     @GetMapping("queryById")
     public ResponseEntity<InvoiceDTO> queryById(String id) {
         return ResponseEntity.ok ( invoiceService.findById ( id ) );
+    }
+    @GetMapping("querySetupById")
+    public ResponseEntity<InvoiceDTO> querySetupById(String id) {
+        return ResponseEntity.ok ( invoiceSetupService.findById ( id ) );
     }
     @PostMapping("generate")
     public  ResponseEntity <String> generate(@Valid @RequestBody InvoiceDTO invoiceDTO) {

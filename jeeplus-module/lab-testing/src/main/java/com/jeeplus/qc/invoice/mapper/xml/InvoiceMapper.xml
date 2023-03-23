@@ -7,6 +7,7 @@
     a.invoice_number AS "invoiceNumber",
     a.name AS "name",
     a.next_number AS "nextNumber",
+    a.factory AS "factory",
     a.create_by AS "createBy.id",
     a.Create_date AS "createDate",
     a.update_by AS "updateBy.id",
@@ -27,13 +28,14 @@
         SELECT
         <include refid="invoiceColumns"/>
           FROM invoice a
-        ${ew.customSqlSegment}
+        ${ew.customSqlSegment} order by update_date desc
     </select>
 
     <select id="findInvoiceSequenceSetup" resultType="com.jeeplus.qc.invoice.service.dto.InvoiceDTO">
         SELECT
         *
         FROM invoice_sequence_setup a
+        ${ew.customSqlSegment} order by update_date desc
     </select>
 
 

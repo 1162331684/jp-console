@@ -13,6 +13,8 @@ public interface InvoiceWrapper extends EntityWrapper<InvoiceDTO, Invoice> {
 
     InvoiceWrapper INSTANCE = Mappers.getMapper(InvoiceWrapper.class);
     @Mappings({
+            @Mapping(source = "invoiceSequenceSetupId", target = "invoiceSequenceSetupId"),
+            @Mapping(source = "factory", target = "factory"),
             @Mapping(source = "createBy.id", target = "createBy"),
             @Mapping (source = "updateBy.id", target = "updateBy")})
      Invoice toEntity(InvoiceDTO dto);

@@ -22,6 +22,7 @@ public class InvoiceService extends ServiceImpl<InvoiceMapper, Invoice> {
     }
 
     public IPage<InvoiceDTO> findInvoiceSequenceSetup(Page<InvoiceDTO> page, QueryWrapper queryWrapper) {
+        queryWrapper.eq ("a.del_flag", 0 ); // 排
         return  baseMapper.findInvoiceSequenceSetup (page, queryWrapper);
     }
 
@@ -29,4 +30,6 @@ public class InvoiceService extends ServiceImpl<InvoiceMapper, Invoice> {
     public InvoiceDTO findById(String id) {
         return baseMapper.findById ( id );
     }
+
+
 }

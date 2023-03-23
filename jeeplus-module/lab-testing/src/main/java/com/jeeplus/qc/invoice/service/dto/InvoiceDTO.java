@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.lang.reflect.Array;
+import java.math.BigInteger;
 import java.util.Date;
 
 @Data
@@ -17,8 +18,10 @@ public class InvoiceDTO extends BaseDTO {
     public String invoiceNumber;
     @Query(tableColumn = "name", javaField = "name", type = QueryType.LIKE)
     public String name;
+    @Query(tableColumn = "factory", javaField = "factory", type = QueryType.EQ)
+    public String factory;
     public  int nextNumber;
-public int invoiceSequenceSetupId;
+public String invoiceSequenceSetupId;
 public String numberSequenceCode;
 public String prefix;
 public String year;
