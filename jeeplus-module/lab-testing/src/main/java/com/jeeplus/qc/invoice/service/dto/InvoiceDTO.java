@@ -18,13 +18,17 @@ public class InvoiceDTO extends BaseDTO {
     public String invoiceNumber;
     @Query(tableColumn = "name", javaField = "name", type = QueryType.LIKE)
     public String name;
-    @Query(tableColumn = "factory", javaField = "factory", type = QueryType.EQ)
-    public String factory;
+    @Query(tableColumn = "number_sequence_code", javaField = "numberSequenceCode", type = QueryType.EQ)
+    public String numberSequenceCode;
+//    public String factory;
     public  int nextNumber;
+    public String lastInvoice;
+
+    public String hadGenerated;
 public String invoiceSequenceSetupId;
-public String numberSequenceCode;
+
 public String prefix;
-public String year;
+public int year;
 public int alphanumeric;
 public  int smallest;
 public int largest;
@@ -34,4 +38,5 @@ public int next;
 public UserDTO createBy;
     @Query(tableColumn = "create_date", javaField = "createDate", type = QueryType.BETWEEN)
 public Date createDate;
+
 }

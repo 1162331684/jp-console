@@ -7,13 +7,16 @@
     a.invoice_number AS "invoiceNumber",
     a.name AS "name",
     a.next_number AS "nextNumber",
-    a.factory AS "factory",
+<!--    a.factory AS "factory",-->
     a.create_by AS "createBy.id",
     a.Create_date AS "createDate",
+    a.last_invoice AS "lastInvoice",
+    a.had_generated As "hadGenerated",
     a.update_by AS "updateBy.id",
     a.update_date AS "updateDate",
     a.del_flag AS "delFlag",
-    a.invoice_sequence_setup_id AS "invoiceSequenceSetupId"
+    a.invoice_sequence_setup_id AS "invoiceSequenceSetupId",
+    a.number_sequence_code As "numberSequenceCode"
 </sql>
 
 

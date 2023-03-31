@@ -23,7 +23,7 @@ public class InvoiceSequenceSetup extends BaseEntity {
     public String prefix;
     public String year;
 
-    public String factory;
+//    public String factory;
     public int alphanumeric;
     public  int smallest;
     public int largest;

@@ -19,8 +19,11 @@ import lombok.EqualsAndHashCode;
         public  int nextNumber;
         public String invoiceSequenceSetupId;
 
-        public String factory;
+        public String numberSequenceCode;
 
+    public String lastInvoice;
+
+    public String hadGenerated;
 
     }
 
