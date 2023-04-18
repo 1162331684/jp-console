@@ -48,7 +48,9 @@ spring:
           #url: jdbc:mysql://127.0.0.1:3306/lab_testing?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
           #username: root
           #password: 'root'
-          url: jdbc:mysql://bowker-polar-uat.rwlb.rds.aliyuncs.com:3306/invoice_number?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+          url: jdbc:mysql://pc-3ns0heb66fl7ueo55.rwlb.rds.aliyuncs.com:3306/invoice_number?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+
+          #url: jdbc:mysql://bowker-polar-uat.rwlb.rds.aliyuncs.com:3306/invoice_number?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
           #url: jdbc:mysql://pc-3ns0heb66fl7ueo55.rwlb.rds.aliyuncs.com:3306/lab_testing?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
           username: bowker_it_rw
           password: 'B@ker%Ali#Uat$R&w'

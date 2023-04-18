@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8090
   servlet:
     context-path:
   tomcat:
@@ -53,10 +53,10 @@ spring:
           #username: webapp
           #password: '*Bowker#Mes@uat*'
 
-          url: jdbc:mysql://bowker-ali-polardb01.rwlb.rds.aliyuncs.com:3306/lab_testing?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&serverTimezone=UTC
+          url: jdbc:mysql://bowker-polar-uat.rwlb.rds.aliyuncs.com:3306/invoice_number?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
           #url: jdbc:mysql://pc-3nsb2s186fnjnw8a1.rwlb.rds.aliyuncs.com:3306/lab_testing?verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&serverTimezone=UTC
-          username: webapp
-          password: '*Bowker#Mes@li*'
+          username: bowker_it_rw
+          password: 'B@ker%Ali#Uat$R&w'
 
           driver-class-name: com.mysql.cj.jdbc.Driver
 

@@ -13,7 +13,7 @@
     <artifactId>jeeplus-web</artifactId>
     <packaging>war</packaging>
 
-    <name>lab-testing-web</name>
+    <name>invoiceNumber-web</name>
     <description>starter</description>
 
 
@@ -123,13 +123,13 @@
         
         <dependency>
             <groupId>org.jeeplus</groupId>
-            <artifactId>lab-testing</artifactId>
+            <artifactId>invoice</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>labtesting</finalName>
+        <finalName>invoiceNumber</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

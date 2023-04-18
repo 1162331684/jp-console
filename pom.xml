@@ -23,13 +23,13 @@
     <artifactId>jeeplus</artifactId>
     <version>9.0</version>
     <packaging>pom</packaging>
-    <name>lab-testing</name>
+    <name>invoiceNumber</name>
 
     <modules>
         <!--启动模块-->
         <module>jeeplus-web</module>
         <!--添加业务模块-->
-        <module>jeeplus-module/lab-testing</module>
+        <module>jeeplus-module/invoice</module>
     </modules>
     <dependencies>
 
